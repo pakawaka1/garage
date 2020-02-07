@@ -13,9 +13,9 @@ connectDB();
 
 // Route files
 const cars = require('./routes/cars');
-const trucks = require('./routes/trucks');
-const boats = require('./routes/boats');
-const auth = require('./routes/auth');
+// const trucks = require('./routes/trucks');
+// const boats = require('./routes/boats');
+// const auth = require('./routes/auth');
 
 const app = express();
 
@@ -26,9 +26,9 @@ app.use(cookieParser());
 app.use(errorHandler);
 
 app.use('/cars', cars);
-app.use('/trucks', trucks);
-app.use('/boats', boats);
-app.use('/auth', auth);
+// app.use('/trucks', trucks);
+// app.use('/boats', boats);
+// app.use('/auth', auth);
 
 const PORT = process.env.PORT || 5000;
 
