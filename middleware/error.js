@@ -1,19 +1,12 @@
 const ErrorResponse = require('../utils/errorResponse');
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
-  console.log(err.name);
   error.message = err.message;
 
   // Bad ObjectId Error
   if (err.name === 'CastError') {
     const message = 'Resource not found';
     error = new ErrorResponse(message, 404);
-  }
-
-  // Duplicate Key Error
-  if (err.code === 11000) {
-    const message = 'Duplicate field value entered';
-    error = new ErrorResponse(message, 400);
   }
 
   // Validation Error

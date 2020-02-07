@@ -27,10 +27,7 @@ exports.createCar = asyncHandler(async (req, res, next) => {
 
 // update one car
 exports.updateCar = asyncHandler(async (req, res, next) => {
-  const car = await Car.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
+  const car = await Car.findByIdAndUpdate(req.params.id, req.body);
   if (!car) {
     return next(
       new ErrorResponse(`Car not found with id of ${req.params.id}`, 404)

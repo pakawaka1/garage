@@ -21,14 +21,14 @@ const app = express();
 
 app.use(express.json());
 
-//middleware
-app.use(cookieParser());
-app.use(errorHandler);
-
 app.use('/cars', cars);
 // app.use('/trucks', trucks);
 // app.use('/boats', boats);
 // app.use('/auth', auth);
+
+//middleware
+app.use(cookieParser());
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
