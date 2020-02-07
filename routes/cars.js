@@ -19,3 +19,5 @@ router
     .get(getCar)
     .put(updateCar)
     .delete(deleteCar);
+
+module.exports = router;
