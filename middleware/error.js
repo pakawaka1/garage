@@ -1,11 +1,12 @@
 const ErrorResponse = require('../utils/errorResponse');
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
+  console.log(err.name);
   error.message = err.message;
 
   // Bad ObjectId Error
   if (err.name === 'CastError') {
-    const message = `Resource not found`;
+    const message = 'Resource not found';
     error = new ErrorResponse(message, 404);
   }
 
