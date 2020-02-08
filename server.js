@@ -15,7 +15,7 @@ connectDB();
 const cars = require('./routes/cars');
 // const trucks = require('./routes/trucks');
 // const boats = require('./routes/boats');
-// const auth = require('./routes/auth');
+const auth = require('./routes/auth');
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use('/cars', cars);
 // app.use('/trucks', trucks);
 // app.use('/boats', boats);
-// app.use('/auth', auth);
+app.use('/auth', auth);
 
 //middleware
 app.use(cookieParser());
@@ -36,9 +36,3 @@ const server = app.listen(
   PORT,
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 );
-
-process.on('unhandledRejection', (err, promise) => {
-  console.log(err);
-  console.log(`Error: ${err.message}`);
-  server.close(() => process.exit(1));
-});
