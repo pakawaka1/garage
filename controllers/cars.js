@@ -2,13 +2,13 @@ const ErrorResponse = require('../utils/errorResponse');
 const Car = require('../models/Car');
 const asyncHandler = require('../middleware/async');
 
-// get all cars
+// list all cars
 exports.getCars = asyncHandler(async (req, res, next) => {
   const cars = await Car.find();
-  res.status(200).json({ success: true, data: cars });
+  res.status(200).json({ success: true, count: cars.length, data: cars });
 });
 
-// get one car
+// read one car
 exports.getCar = asyncHandler(async (req, res, next) => {
   const car = await Car.findById(req.params.id);
   if (!car) {

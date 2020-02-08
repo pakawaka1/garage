@@ -24,15 +24,15 @@ const CarSchema = new mongoose.Schema({
   color: {
     type: String,
     required: [true, 'Please enter the vehicle color'],
-    maxlength: [10, 'Seats cannot be more than 10 characters']
+    maxlength: [10, 'Color cannot be more than 10 characters']
   },
   VIN: {
     type: String,
     unique: true,
     required: [true, 'Please enter a VIN nunber'],
     match: [/^[A-Za-z0-9]/, 'Valid VIN required'],
-    minlength: [17, 'VIN must 17 characters'],
-    maxlength: [17, 'VIN must 17 characters']
+    minlength: [17, 'VIN must have 17 characters'],
+    maxlength: [17, 'VIN must have 17 characters']
   },
   currentMileage: {
     type: Number,
@@ -44,7 +44,7 @@ const CarSchema = new mongoose.Schema({
     required: [true, 'Please enter the service interval']
   },
   nextService: {
-    type: String,
+    type: Number,
     required: [true, 'Please enter when the next service is due']
   }
 });
