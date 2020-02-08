@@ -13,7 +13,7 @@ connectDB();
 
 // Route files
 const cars = require('./routes/cars');
-// const trucks = require('./routes/trucks');
+const trucks = require('./routes/trucks');
 // const boats = require('./routes/boats');
 const auth = require('./routes/auth');
 
@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/cars', cars);
-// app.use('/trucks', trucks);
+app.use('/trucks', trucks);
 // app.use('/boats', boats);
 app.use('/auth', auth);
 

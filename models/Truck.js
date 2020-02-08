@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CarSchema = new mongoose.Schema({
+const TruckSchema = new mongoose.Schema({
   make: {
     type: String,
     required: [true, 'Please add a make'],
@@ -18,7 +18,12 @@ const CarSchema = new mongoose.Schema({
   },
   seats: {
     type: String,
-    required: [true, 'Please add number of seats'],
+    required: [true, 'Please enter the number of seats'],
+    maxlength: [10, 'Seats cannot be more than 10 characters']
+  },
+  bedLength: {
+    type: String,
+    required: [true, 'Please enter a bed number'],
     maxlength: [10, 'Seats cannot be more than 10 characters']
   },
   color: {
@@ -49,4 +54,4 @@ const CarSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Car', CarSchema);
+module.exports = mongoose.model('Truck', TruckSchema);
