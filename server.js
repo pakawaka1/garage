@@ -27,8 +27,8 @@ app.use('/cars', cars);
 app.use('/auth', auth);
 
 //middleware
-app.use(cookieParser());
 app.use(errorHandler);
+app.use(cookieParser);
 
 const PORT = process.env.PORT || 5000;
 

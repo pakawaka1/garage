@@ -9,15 +9,17 @@ const {
 
 const router = express.Router();
 
+const { protect } = require('../middleware/auth');
+
 router
   .route('/')
-  .get(getCars)
-  .post(createCar);
+  .get(protect, getCars)
+  .post(protect, createCar);
 
 router
   .route('/:id')
-  .get(getCar)
-  .put(updateCar)
-  .delete(deleteCar);
+  .get(protect, getCar)
+  .put(protect, updateCar)
+  .delete(protect, deleteCar);
 
 module.exports = router;

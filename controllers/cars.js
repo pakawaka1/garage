@@ -33,7 +33,7 @@ exports.updateCar = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Car not found with id of ${req.params.id}`, 404)
     );
   }
-  res.status(200).json({ success: true, msg: `Update car ${req.params.id}` });
+  res.status(200).json({ success: true, msg: `Updated car ${req.params.id}` });
 });
 
 // delete one car
