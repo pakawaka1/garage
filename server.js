@@ -26,13 +26,20 @@ app.use('/trucks', trucks);
 app.use('/boats', boats);
 app.use('/auth', auth);
 
-//middleware
+// middleware
 app.use(errorHandler);
 app.use(cookieParser);
 
+// connect to server
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
   PORT,
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 );
+
+// handles unhandled rejections and closes app server
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at: ', promise, 'reason: ', reason);
+  server.close(() => process.exit(1));
+});
