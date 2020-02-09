@@ -13,7 +13,7 @@ exports.getTruck = asyncHandler(async (req, res, next) => {
   const truck = await Truck.findById(req.params.id);
   if (!truck) {
     return next(
-      new ErrorResponse(`Truck not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Truck not found with id of ${req.params.id}.`, 404)
     );
   }
   res.status(200).json({ success: true, data: truck });
@@ -30,12 +30,12 @@ exports.updateTruck = asyncHandler(async (req, res, next) => {
   const truck = await Truck.findByIdAndUpdate(req.params.id, req.body);
   if (!truck) {
     return next(
-      new ErrorResponse(`Truck not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Truck not found with id of ${req.params.id}.`, 404)
     );
   }
   res
     .status(200)
-    .json({ success: true, msg: `Updated truck ${req.params.id}` });
+    .json({ success: true, msg: `Updated truck ${req.params.id}.` });
 });
 
 // delete one truck
@@ -43,10 +43,10 @@ exports.deleteTruck = asyncHandler(async (req, res, next) => {
   const truck = await Truck.findByIdAndDelete(req.params.id);
   if (!truck) {
     return next(
-      new ErrorResponse(`Truck not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Truck not found with id of ${req.params.id}.`, 404)
     );
   }
   res
     .status(200)
-    .json({ success: true, msg: `Deleted truck ${req.params.id}` });
+    .json({ success: true, msg: `Deleted truck ${req.params.id}.` });
 });

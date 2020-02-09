@@ -5,13 +5,13 @@ const errorHandler = (err, req, res, next) => {
 
   // Bad ObjectId Error
   if (err.name === 'CastError') {
-    const message = 'Resource not found';
+    const message = 'Resource not found.';
     error = new ErrorResponse(message, 404);
   }
 
   // Duplicate Key Error
   if (err.code === 11000) {
-    const message = 'Duplicate field value entered';
+    const message = 'Duplicate field value entered.  Please check your inputs.';
     error = new ErrorResponse(message, 400);
   }
 

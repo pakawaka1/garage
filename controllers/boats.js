@@ -13,7 +13,7 @@ exports.getBoat = asyncHandler(async (req, res, next) => {
   const boat = await Boat.findById(req.params.id);
   if (!boat) {
     return next(
-      new ErrorResponse(`Boat not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Boat not found with id of ${req.params.id}.`, 404)
     );
   }
   res.status(200).json({ success: true, data: boat });
@@ -30,10 +30,12 @@ exports.updateBoat = asyncHandler(async (req, res, next) => {
   const boat = await Boat.findByIdAndUpdate(req.params.id, req.body);
   if (!boat) {
     return next(
-      new ErrorResponse(`Boat not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Boat not found with id of ${req.params.id}.`, 404)
     );
   }
-  res.status(200).json({ success: true, msg: `Updated boat ${req.params.id}` });
+  res
+    .status(200)
+    .json({ success: true, msg: `Updated boat ${req.params.id}.` });
 });
 
 // delete one boat
@@ -41,8 +43,10 @@ exports.deleteBoat = asyncHandler(async (req, res, next) => {
   const boat = await Boat.findByIdAndDelete(req.params.id);
   if (!boat) {
     return next(
-      new ErrorResponse(`Boat not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Boat not found with id of ${req.params.id}.`, 404)
     );
   }
-  res.status(200).json({ success: true, msg: `Deleted boat ${req.params.id}` });
+  res
+    .status(200)
+    .json({ success: true, msg: `Deleted boat ${req.params.id}.` });
 });

@@ -1,0 +1,682 @@
+{
+	"info": {
+		"_postman_id": "8bb47c1d-1850-45e7-a7be-3d99576220ca",
+		"name": "Garage",
+		"description": "A parking garage testing source\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\n\t\"name\": \"Jane Doe\",\n\t\"email\": \"jane@gmail.com\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						},
+						"description": "Register User"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTEyODUzMSwiZXhwIjoxNTgxOTkyNTMxfQ.2vfjXKq_y66ynS6ytZ4vSfMeIx09lO97fP8NpiG-K1M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"john@gmail.com\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login User with auth token"
+					},
+					"response": []
+				},
+				{
+					"name": "Read User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/auth/user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"user"
+							]
+						},
+						"description": "See user"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Logout user and clear tokens and cookies"
+					},
+					"response": []
+				}
+			],
+			"description": "Register, login, read, and logout functionality for users of parking garage app.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d58bb340-5601-4e7e-92b4-fa182b177f0e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3433a46b-c7c6-488d-a8d9-3c276cd703e6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "List All Cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/cars",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cars"
+							]
+						},
+						"description": "Get all cars in database"
+					},
+					"response": []
+				},
+				{
+					"name": "Read One Car",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE0ODkwOCwiZXhwIjoxNTgyMDEyOTA4fQ.40PKtZKwGEMk-01eKkOv04EnQsPyZiOshWwwlPTfR1M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/cars/5e3ee78679f950d28f4f44ca",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cars",
+								"5e3ee78679f950d28f4f44ca"
+							]
+						},
+						"description": "Get one car only"
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Car",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\n    \"make\": \"Ford\",\n    \"model\": \"Focus\",\n    \"year\": 2020,\n    \"seats\": \"two\",\n    \"color\": \"Blue\",\n    \"VIN\": \"13D3S353S30302105\",\n    \"currentMileage\": 100,\n    \"serviceInterval\": \"every 7500 miles\",\n    \"nextService\": \"7600\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/cars",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cars"
+							]
+						},
+						"description": "Get all cars in database"
+					},
+					"response": []
+				},
+				{
+					"name": "Update One Car",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nextService\": 7600 \n}"
+						},
+						"url": {
+							"raw": "{{URL}}/cars/5e3ee8e579f950d28f4f44ce",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cars",
+								"5e3ee8e579f950d28f4f44ce"
+							]
+						},
+						"description": "Car will be updated with correct parameters"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One Car",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/cars/5e3ee7cf79f950d28f4f44cd",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cars",
+								"5e3ee7cf79f950d28f4f44cd"
+							]
+						},
+						"description": "When one car is deleted."
+					},
+					"response": []
+				}
+			],
+			"description": "Create, read, update and delete cars in a garage inventory.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "37a0f1df-70e2-4ad6-8b1f-45c6706c9855",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7c08199-7a6d-4518-bfd9-831a983188b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Trucks",
+			"item": [
+				{
+					"name": "List All Trucks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/trucks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"trucks"
+							]
+						},
+						"description": "Get all trucks in the garage."
+					},
+					"response": []
+				},
+				{
+					"name": "Read One Truck",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/trucks/5e3ee30002775cd23b9a9292",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"trucks",
+								"5e3ee30002775cd23b9a9292"
+							]
+						},
+						"description": "Use truck ID to get info on one truck"
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Truck",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\n\t\"make\": \"Dodge\",\n    \"model\": \"Ram\",\n    \"year\": 2000,\n    \"seats\": \"one\",\n    \"bedLength\":\"long\",\n    \"color\": \"Blue\",\n    \"VIN\": \"43334567890IUPEAN\",\n    \"currentMileage\": 100000,\n    \"serviceInterval\": \"every 7500 miles\",\n    \"nextService\": \"107500\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/trucks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"trucks"
+							]
+						},
+						"description": "post request to add new trucks to garage"
+					},
+					"response": []
+				},
+				{
+					"name": "Update One Truck",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nextService\": 129222\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/trucks/5e3ee34002775cd23b9a9293",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"trucks",
+								"5e3ee34002775cd23b9a9293"
+							]
+						},
+						"description": "Updating any field with put request with id."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One Truck",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/trucks/5e3efc3e0e2951d829dfabcc",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"trucks",
+								"5e3efc3e0e2951d829dfabcc"
+							]
+						},
+						"description": "Delete truck in garage using id."
+					},
+					"response": []
+				}
+			],
+			"description": "Requests to create, read, update and delete trucks in a garage.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5ef69595-ef97-4478-a08f-128a1fa73abd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8d86887-c106-41d6-8d06-bc850546c089",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Boats",
+			"item": [
+				{
+					"name": "List All Boats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/boats",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"boats"
+							]
+						},
+						"description": "Listing of all boats in the garage."
+					},
+					"response": []
+				},
+				{
+					"name": "Read One Boat",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/boats/5e3ef29cb458a2d7b4d99bfc",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"boats",
+								"5e3ef29cb458a2d7b4d99bfc"
+							]
+						},
+						"description": "read one boat using id number in URL."
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Boat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE4MjY2NiwiZXhwIjoxNTgyMDQ2NjY2fQ.BgCy67CzudF5zSO3B6eh9x5QSjJMcuEnbcDndlGIrEY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\n\t\"make\": \"Tahoe\",\n    \"model\": \"900\",\n    \"year\": 2018,\n    \"length\": \"24 feet LOA\",\n    \"width\": \"12 feet\",\n    \"HIN\":\"TAH1244512X33\",\n    \"currentHours\": 50,\n    \"serviceInterval\": \"every 50 hours\",\n    \"nextService\": 100\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/boats",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"boats"
+							]
+						},
+						"description": "Create new boat in garage with all necessary data."
+					},
+					"response": []
+				},
+				{
+					"name": "Update One Boat",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"serviceInterval\": \"every 50 hours\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/boats/5e3f0102f8c6a7d87be0dd9b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"boats",
+								"5e3f0102f8c6a7d87be0dd9b"
+							]
+						},
+						"description": "update fields in boat using id."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One Boat",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxYjUzZGRiMTAwYzE5ODA3OTI4NyIsImlhdCI6MTU4MTE3ODk1MywiZXhwIjoxNTgyMDQyOTUzfQ.4f4CjzL-TKd6-_BrnStvDCJzxGnUs89gDkJrEQCV3kE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/boats/5e3f0102f8c6a7d87be0dd9b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"boats",
+								"5e3f0102f8c6a7d87be0dd9b"
+							]
+						},
+						"description": "Delete a boat from the garage using id."
+					},
+					"response": []
+				}
+			],
+			"description": "Requests to create, read, update and delete boats in a garage.",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d964a220-e955-41c6-aeb8-6f772cd1f9a3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c589a757-43c6-4d6b-b903-52defaed361d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "50ed0ce8-7ac5-4ea6-beca-1a2ca2585cfb",
+			"key": "URL",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
