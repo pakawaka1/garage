@@ -8,19 +8,23 @@ exports.protect = asyncHandler(async (req, res, next) => {
   let token;
   if (
     req.headers.cookie &&
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
+    req.headers.cookie.split('token=')[1] ===
+      req.headers.authorization.split(' ')[1]
   ) {
-    token = req.headers.cookie.split('token=')[1];
+    token = req.headers.authorization.split(' ')[1];
   }
   if (!token) {
-    return next(new ErrorResponse('Not authorized to access this route', 401));
+    res.cookie('token', 'none', {
+      expires: new Date(Date.now()),
+      httpOnly: true
+    });
+    return next(new ErrorResponse('Not authorized to access this route.', 401));
   }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = await User.findById(decoded.id);
     next();
   } catch (err) {
-    return next(new ErrorResponse('Not authorized to access this route', 401));
+    return next(new ErrorResponse('Not authorized to access this route.', 401));
   }
 });
