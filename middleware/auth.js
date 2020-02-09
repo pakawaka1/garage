@@ -15,7 +15,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
   }
   if (!token) {
     res.cookie('token', 'none', {
-      expires: new Date(Date.now()),
+      expires: new Date(Date.now() + 1 * 1000),
       httpOnly: true
     });
     return next(new ErrorResponse('Not authorized to access this route.', 401));
