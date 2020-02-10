@@ -14,7 +14,7 @@ const CarSchema = new mongoose.Schema({
   year: {
     type: Number,
     required: [true, 'Please add a year.'],
-    maxlength: [4, 'Year cannot be more than 4 characters']
+    max: [4, 'Year cannot be more than 4 characters.']
   },
   seats: {
     type: String,
@@ -37,7 +37,7 @@ const CarSchema = new mongoose.Schema({
   currentMileage: {
     type: Number,
     required: [true, 'Please enter current mileage.'],
-    maxlength: [6, 'Current mileage cannot be more than 6 characters.']
+    max: [6, 'Current mileage cannot be more than 6 characters.']
   },
   serviceInterval: {
     type: String,

@@ -14,7 +14,7 @@ const BoatSchema = new mongoose.Schema({
   year: {
     type: Number,
     required: [true, 'Please add a year.'],
-    maxlength: [4, 'Year cannot be more than 4 characters.']
+    max: [4, 'Year cannot be more than 4 characters.']
   },
   length: {
     type: String,
@@ -37,7 +37,7 @@ const BoatSchema = new mongoose.Schema({
   currentHours: {
     type: Number,
     required: [true, 'Please enter current hours.'],
-    maxlength: [6, 'Current hours cannot be more than 6 characters.']
+    max: [6, 'Current hours cannot be more than 6 characters.']
   },
   serviceInterval: {
     type: String,
