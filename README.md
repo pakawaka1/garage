@@ -56,7 +56,7 @@ IV. LOGIN TO GARAGE USING POSTMAN
 
 V. TESTING PROTECTED ROUTES
 
-1.  All Cars, Trucks and Boats routes, along with the route "http://localhost:5000/auth/user" (user profile) are protected and require the valid JWT you received upon login.
+    1.  All Cars, Trucks and Boats routes, along with the route "http://localhost:5000/auth/user" (user profile) are protected and require the valid JWT you received upon login.
 
     2.  When making requests using protected routes, you will need to paste the valid JWT into the headers for each individual request for the value, preceded by the word "Bearer". The format will be similar to this example:
         Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlM2UxNjY3NThhMzYzYmVjZGNjZDY0OCIsImlhdCI6MTU4MTMxMTE1OSwiZXhwIjoxNTgyMTc1MTU5fQ.UP_vanngfvZfHKh5dReW8_Km1Dmrnjt5E7TFKOs2s90
@@ -70,7 +70,7 @@ V. TESTING PROTECTED ROUTES
         "success": false,
         "error": "Not authorized to access this route."
         }
-        You will need to login again by clicking the "Login User" post request in the "Authentication" folder, send the request, and copy the JWT in the response.
+        If this happens, the JWT is no longer valid and you will need to obtain a new one.  Login again by clicking the "Login User" post request in the "Authentication" folder, send the request, and copy the JWT in the response.
 
 VI. GET REQUESTS FOR LIST
 
