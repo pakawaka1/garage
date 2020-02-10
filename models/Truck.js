@@ -12,9 +12,10 @@ const TruckSchema = new mongoose.Schema({
     maxlength: [20, 'Model cannot be more than 20 characters.']
   },
   year: {
-    type: Number,
+    type: String,
     required: [true, 'Please add a year.'],
-    max: [4, 'Year cannot be more than 4 characters.']
+    minlength: [4, 'Year must have at least 4 characters'],
+    maxlength: [4, 'Year cannot be more than 4 characters.']
   },
   seats: {
     type: String,
@@ -40,16 +41,16 @@ const TruckSchema = new mongoose.Schema({
     maxlength: [17, 'VIN must have 17 characters.']
   },
   currentMileage: {
-    type: Number,
+    type: String,
     required: [true, 'Please enter current mileage.'],
-    max: [6, 'Current mileage cannot be more than 6 characters.']
+    max: [7, 'Current mileage cannot be more than 6 characters.']
   },
   serviceInterval: {
     type: String,
     required: [true, 'Please enter the service interval.']
   },
   nextService: {
-    type: Number,
+    type: String,
     required: [true, 'Please enter when the next service is due.']
   }
 });

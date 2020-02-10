@@ -65,7 +65,7 @@ V. TESTING PROTECTED ROUTES
 
     3.  For testing, go ahead set the headers, as described above, into each of the requests before doing any testing.
 
-    4.  Make sure to use the correct JWT and it is verified programmtically. If the JWT is not valid, the response will be:
+    4.  Make sure to use the correct JWT and it is verified programmtically. If the JWT is not the one you received upon login, the response will be:
         {
         "success": false,
         "error": "Not authorized to access this route."
@@ -179,39 +179,40 @@ VIII. POST REQUESTS FOR CREATE
     4.  The above fields will look similar to these objects:
         Car:
         {
-            "make": "Ford",
-            "model": "Fusion",
-            "year": 2020,
+            "make": "Fiat",
+            "model": "500",
+            "year":	"2010",
             "seats": "two",
-            "color": "Blue",
-            "VIN": "03D3S353S30302135",
-            "currentMileage": 100,
+            "color": "red",
+            "VIN": "44632D3S353S30302",
+            "currentMileage": "100,003",
             "serviceInterval": "every 7500 miles",
-            "nextService": "7600"
+            "nextService": "107,600"
         }
         Truck:
         {
-            "make": "Tahoe",
-            "model": "905",
-            "year": 2019,
-            "length": "24 feet LOA",
-            "width": "12 feet",
-            "HIN":"TAH23244512X3",
-            "currentHours": 50,
-            "serviceInterval": "every 50 hours",
-            "nextService": 100
+            "make": "Dodge",
+            "model": "Ram",
+            "year": "1982",
+            "seats": "one",
+            "bedLength": "short",
+            "color": "red",
+            "VIN": "54632D3S353S30302",
+            "currentMileage":"100000",
+            "serviceInterval": "every 7500 miles",
+            "nextService": "107500"
         }
         Boat:
         {
-            "make": "Tahoe",
-            "model": "905",
-            "year": 2019,
+            "make": "Marauder",
+            "model": "1000",
+            "year": "2017",
             "length": "24 feet LOA",
             "width": "12 feet",
-            "HIN":"TAH23244512X3",
-            "currentHours": 50,
-            "serviceInterval": "every 50 hours",
-            "nextService": 100
+            "HIN":"MAU23244512X3",
+            "currentHours": "100",
+            "serviceInterval": "every 75 hours",
+            "nextService": "175"
         }
     5.  Next, find the request name in Postman and click it to open.
 

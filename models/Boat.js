@@ -12,9 +12,10 @@ const BoatSchema = new mongoose.Schema({
     maxlength: [20, 'Model cannot be more than 20 characters.']
   },
   year: {
-    type: Number,
+    type: String,
     required: [true, 'Please add a year.'],
-    max: [4, 'Year cannot be more than 4 characters.']
+    minlength: [4, 'Year must have at least 4 characters'],
+    maxlength: [4, 'Year cannot be more than 4 characters.']
   },
   length: {
     type: String,
@@ -35,16 +36,16 @@ const BoatSchema = new mongoose.Schema({
     maxlength: [13, 'HIN must not have more than 13 characters.']
   },
   currentHours: {
-    type: Number,
+    type: String,
     required: [true, 'Please enter current hours.'],
-    max: [6, 'Current hours cannot be more than 6 characters.']
+    maxlength: [7, 'Current hours cannot be more than 7 characters.']
   },
   serviceInterval: {
     type: String,
     required: [true, 'Please enter the service interval.']
   },
   nextService: {
-    type: Number,
+    type: String,
     required: [true, 'Please enter when the next service is due.']
   }
 });
